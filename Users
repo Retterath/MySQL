@@ -1,17 +1,15 @@
 CREATE TABLE `users` (
 `id` int AUTO_INCREMENT NOT NULL,
-`name` VARCHAR(200) NOT NULL REQUIRED
-`picture` BLOB NULL,
-`height` double(5,2) NULL,
-`weight` double(5,2) NULL,
-`gender` CHAR NOT NULL,
-`birthdate` DATE NOT NULL,
-`biography` TEXT NULL,
+`username` VARCHAR(30) CHARACTER SET utf8 NOT NULL,
+`password` VARCHAR(26) CHARACTER SET utf8 NOT NULL,
+`profile_picture` MEDIUMBLOB NULL,
+`last_login_time` TIME,
+`is_deleted` boolean,
 PRIMARY KEY(`id`));
 
-INSERT INTO `people` (`name`, `height`, `weight`, `gender`, `birthdate`, `biography`)
-VALUES ('tosho', '1.78', '80', 'm', '1978-12-01', 'blah'),
-('iva', '1.66', '55', 'f', '1987-04-05', 'It was a lonely night'),
-('dida', '1.70', '80', 'f', '1987-04-05', 'The woods were full'),
-('gosho', '1.65', '95.4', 'm', '1988-01-25', 'There was a noise'),
-('pesho', '1.70', '80', 'm', '1987-04-05', 'And i couldnt..');
+INSERT INTO `users` (`username`, `password`, `profile_picture`, `last_login_time`, `is_deleted`)
+VALUES ('tosho', 'starwars', NULL,'15:50:00',true),
+('iva', 'starwars', NULL, '15:50:00', false),
+('dida', 'starwars', NULL, '15:50:00', true),
+('gosho', 'starwars', NULL, '15:50:00', false),
+('pesho', 'starwars', NULL, '15:50:00', true);
