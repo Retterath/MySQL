@@ -1,0 +1,110 @@
+CREATE DATABASE hotel;
+USE hotel;
+ 
+CREATE TABLE employees(
+    id int not null primary key auto_increment,
+    first_name varchar(30) not null,
+    last_name varchar(30),
+    title varchar(30),
+    notes text
+);
+INSERT INTO employees (first_name)
+VALUES
+    ('A.'),
+    ('B.'),
+    ('C.');
+   
+CREATE TABLE customers(
+    account_number int not null primary key auto_increment,
+    first_name varchar(30) not null,
+    last_name varchar(30) not null,
+    phone_number int,
+    emergency_name varchar(30),
+    emergency_number varchar(30),
+    notes text
+);
+INSERT INTO customers(first_name, last_name)
+VALUES
+    ('A.', 'A.'),
+    ('B.', 'B.'),
+    ('C.', 'C.');
+   
+CREATE TABLE room_status(
+    room_status varchar(30) not null primary key,
+    notes text
+);
+INSERT INTO room_status(room_status)
+VALUES
+('Available'),
+('Reservation'),
+('Occupied');
+   
+CREATE TABLE room_types(
+    room_type varchar(30) not null primary key,
+    notes text
+);
+INSERT INTO room_types(room_type)
+VALUES
+    ('Single'),
+    ('Double'),
+    ('Apartment');
+   
+CREATE TABLE bed_types(
+    bed_type varchar(30) not null primary key,
+    notes text
+);
+INSERT INTO bed_types(bed_type)
+VALUES
+('S'),
+('M'),
+('L');
+   
+CREATE TABLE rooms(
+    room_number int not null primary key,
+    room_type varchar(30),
+    bed_type varchar(30),
+    rate varchar(30),
+    room_status varchar(30),
+    notes text
+);
+INSERT INTO rooms(room_number)
+VALUES
+    (101),
+    (102),
+    (103);
+   
+CREATE TABLE payments(
+    id int not null primary key auto_increment,
+    employee_id int,
+    payment_date datetime,
+    account_number varchar(30),
+    first_date_occupied date,
+    last_date_occupied date,
+    total_days int,
+    amount_charged decimal(10, 2),
+    tax_rate decimal(10, 2),
+    tax_amount decimal(10, 2),
+    payment_total decimal(10, 2),
+    notes text
+);
+INSERT INTO payments(employee_id)
+VALUES
+    (1),
+    (2),
+    (3);
+   
+CREATE TABLE occupancies(
+    id int not null primary key auto_increment,
+    employee_id int,
+    date_occupied datetime,
+    account_number varchar(30),
+    room_number int,
+    rate_applied varchar(30),
+    phone_charge varchar(30),
+    notes text
+);
+INSERT INTO occupancies (room_number)
+VALUES
+    (101),
+    (102),
+    (103);

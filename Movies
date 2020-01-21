@@ -1,0 +1,64 @@
+CREATE DATABASE movies;
+USE movies;
+ 
+CREATE TABLE directors(
+    id INT NOT NULL AUTO_INCREMENT,
+    director_name VARCHAR(30) NOT NULL,
+    notes TEXT,
+    PRIMARY KEY (id)
+);
+INSERT INTO directors(director_name)
+VALUES
+    ('A'),
+    ('B'),
+    ('C'),
+    ('D'),
+    ('E');
+ 
+CREATE TABLE genres(
+    id INT NOT NULL AUTO_INCREMENT,
+    genre_name VARCHAR(30) NOT NULL,
+    notes TEXT,
+    PRIMARY KEY (id)
+);
+INSERT INTO genres(genre_name)
+VALUES
+    ('AAA'),
+    ('BBB'),
+    ('CCC'),
+    ('DDD'),
+    ('EEE');
+ 
+CREATE TABLE categories(
+    id INT NOT NULL AUTO_INCREMENT,
+    category_name VARCHAR(30) NOT NULL,
+    notes TEXT,
+    PRIMARY KEY (id)
+);
+INSERT INTO categories(category_name)
+VALUES
+    ('AAAAA'),
+    ('BBBBB'),
+    ('CCCCC'),
+    ('DDDDD'),
+    ('EEEEE');
+ 
+CREATE TABLE movies(
+    id INT NOT NULL AUTO_INCREMENT,
+    title VARCHAR(30) NOT NULL,
+    director_id INT,
+    copyright_year YEAR,
+    length INT,
+    genre_id INT,
+    category_id INT,
+    rating INT,
+    notes TEXT,
+    PRIMARY KEY (id)
+);
+INSERT INTO movies(title, copyright_year)
+VALUES
+    ('AAA AAA', NULL),
+    ('BBB BBB', 2018),
+    ('CCC CCC', 2019),
+    ('DDD DDD', current_timestamp()),
+    ('EEE EEE', current_timestamp());

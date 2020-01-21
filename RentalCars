@@ -1,0 +1,86 @@
+CREATE DATABASE car_rental;
+USE car_rental;
+ 
+CREATE TABLE categories (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    category VARCHAR(30) NOT NULL,
+    daily_rate TINYINT DEFAULT 0,
+    weekly_rate TINYINT DEFAULT 0,
+    monthly_rate TINYINT DEFAULT 0,
+    weekend_rate TINYINT DEFAULT 0
+);
+INSERT INTO categories(category)
+VALUES
+    ('A'),
+    ('B'),
+    ('C');
+   
+CREATE TABLE cars(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    plate_number INT NOT NULL,
+    make VARCHAR(30) NOT NULL,
+    model VARCHAR(30) NOT NULL,
+    car_year YEAR,
+    category_id INT,
+    doors TINYINT,
+    picture BLOB,
+    car_condition VARCHAR(30),
+    available BIT DEFAULT 0
+);
+INSERT INTO cars(plate_number, make, model)
+VALUES
+    (1, 'a', 'A'),
+    (2, 'b', 'B'),
+    (3, 'c', 'C');
+   
+CREATE TABLE employees(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(30) NOT NULL,
+    last_name VARCHAR(30) NOT NULL,
+    title VARCHAR(30),
+    notes TEXT
+);
+INSERT INTO employees(first_name, last_name)
+VALUES
+    ('Pesho', 'A'),
+    ('Petko', 'B'),
+    ('Pavel', 'C');
+   
+CREATE TABLE customers(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    driver_licence_number INT NOT NULL,
+    full_name VARCHAR(30) NOT NULL,
+    address VARCHAR(50),
+    city VARCHAR(30),
+    zip_code VARCHAR(10),
+    notes TEXT
+);
+INSERT INTO customers(driver_licence_number, full_name)
+VALUES
+    (11111, 'A.A.'),
+    (22222, 'B.B.'),
+    (33333, 'C.C.');
+ 
+CREATE TABLE rental_orders(
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    employee_id INT NOT NULL,
+    customer_id INT NOT NULL,
+    car_id INT NOT NULL,
+    car_condition VARCHAR(30),
+    tank_level VARCHAR(30),
+    kilometrage_start INT,
+    kilometrage_end INT,
+    total_kilometrage INT,
+    start_date DATE,
+    end_date DATE,
+    total_days INT,
+    rate_applied VARCHAR(30),
+    tax_rate INT,
+    order_status VARCHAR(30),
+    notes TEXT
+);
+INSERT INTO rental_orders(employee_id, customer_id, car_id)
+VALUES
+    (1, 1, 1),
+    (2, 2, 2),
+    (3, 2, 3);
