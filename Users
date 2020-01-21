@@ -1,0 +1,17 @@
+CREATE TABLE `users` (
+`id` int AUTO_INCREMENT NOT NULL,
+`name` VARCHAR(200) NOT NULL REQUIRED
+`picture` BLOB NULL,
+`height` double(5,2) NULL,
+`weight` double(5,2) NULL,
+`gender` CHAR NOT NULL,
+`birthdate` DATE NOT NULL,
+`biography` TEXT NULL,
+PRIMARY KEY(`id`));
+
+INSERT INTO `people` (`name`, `height`, `weight`, `gender`, `birthdate`, `biography`)
+VALUES ('tosho', '1.78', '80', 'm', '1978-12-01', 'blah'),
+('iva', '1.66', '55', 'f', '1987-04-05', 'It was a lonely night'),
+('dida', '1.70', '80', 'f', '1987-04-05', 'The woods were full'),
+('gosho', '1.65', '95.4', 'm', '1988-01-25', 'There was a noise'),
+('pesho', '1.70', '80', 'm', '1987-04-05', 'And i couldnt..');
