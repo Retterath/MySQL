@@ -1,0 +1,36 @@
+SELECT 
+    first_name, last_name
+FROM
+    employees
+WHERE
+    SUBSTRING(`last_name`, LOCATE('an', `last_name`), 2) = 'an'
+ORDER BY employee_id ASC;
+
+/*
+Extracted all employees that contain "an" in their last_name
+*/
+
+SELECT 
+    first_name
+FROM
+    employees
+WHERE
+    department_id IN(3,10) AND YEAR(hire_date) BETWEEN 1995 AND 2005
+ORDER BY employee_id ASC;
+
+/*
+Extracted all employees that contain department_id is between 3 and 10 
+and their hire_date between 1995 and 2005
+*/
+
+CREATE VIEW v_employees_hired_after_2000 AS
+SELECT 
+    first_name, last_name
+FROM
+    employees
+WHERE
+	YEAR(hire_date) > 2000;
+	
+/*
+Created a view that displays all employees hired after 2000
+*/
